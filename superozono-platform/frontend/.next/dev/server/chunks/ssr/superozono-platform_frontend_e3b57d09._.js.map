@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/MI%20PC/Desktop/landing%20superozonoglobal%20certificaciones/superozono-platform/frontend/src/app/layout.tsx"],"sourcesContent":["import type { Metadata } from 'next';\r\nimport '../styles/globals.css';\r\n\r\nexport const metadata: Metadata = {\r\n    title: 'Super Ozono Platform',\r\n    description: 'Gestión profesional de ozono y purificación de agua',\r\n};\r\n\r\nexport default function RootLayout({\r\n    children,\r\n}: {\r\n    children: React.ReactNode;\r\n}) {\r\n    return (\r\n        <html lang=\"es\">\r\n            <body>{children}</body>\r\n        </html>\r\n    );\r\n}\r\n"],"names":[],"mappings":";;;;;;;;;AAGO,MAAM,WAAqB;IAC9B,OAAO;IACP,aAAa;AACjB;AAEe,SAAS,WAAW,EAC/B,QAAQ,EAGX;IACG,qBACI,oRAAC;QAAK,MAAK;kBACP,cAAA,oRAAC;sBAAM;;;;;;;;;;;AAGnB"}},
-    {"offset": {"line": 37, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/MI%20PC/Desktop/landing%20superozonoglobal%20certificaciones/superozono-platform/frontend/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-rsc']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,yJACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0]}}]
-}

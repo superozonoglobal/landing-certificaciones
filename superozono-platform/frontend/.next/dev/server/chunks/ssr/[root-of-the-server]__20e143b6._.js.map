@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 14, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/MI%20PC/Desktop/landing%20superozonoglobal%20certificaciones/superozono-platform/frontend/src/app/page.tsx"],"sourcesContent":["import React from 'react';\r\n\r\nexport default function HomePage() {\r\n    return (\r\n        <main style={{ padding: '2rem', textAlign: 'center' }}>\r\n            <h1>Super Ozono Platform</h1>\r\n            <p>Bienvenido al frontend profesional de Super Ozono</p>\r\n            <div style={{ marginTop: '2rem' }}>\r\n                <a href=\"/login\" style={{ marginRight: '1rem' }}>Login</a>\r\n                <a href=\"/dashboard\">Dashboard</a>\r\n            </div>\r\n        </main>\r\n    );\r\n}\r\n"],"names":[],"mappings":";;;;;;AAEe,SAAS;IACpB,qBACI,oRAAC;QAAK,OAAO;YAAE,SAAS;YAAQ,WAAW;QAAS;;0BAChD,oRAAC;0BAAG;;;;;;0BACJ,oRAAC;0BAAE;;;;;;0BACH,oRAAC;gBAAI,OAAO;oBAAE,WAAW;gBAAO;;kCAC5B,oRAAC;wBAAE,MAAK;wBAAS,OAAO;4BAAE,aAAa;wBAAO;kCAAG;;;;;;kCACjD,oRAAC;wBAAE,MAAK;kCAAa;;;;;;;;;;;;;;;;;;AAIrC"}}]
-}

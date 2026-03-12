@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/superozono-platform/frontend/src/styles/variables.css"],"sourcesContent":[":root {\r\n  --primary: #0070f3;\r\n  --secondary: #000;\r\n  --background: #fff;\r\n  --text: #000;\r\n  --gray: #666;\r\n  --light-gray: #f5f5f5;\r\n  --border: #eaeaea;\r\n}\r\n\r\n@media (prefers-color-scheme: dark) {\r\n  :root {\r\n    --primary: #0070f3;\r\n    --secondary: #fff;\r\n    --background: #000;\r\n    --text: #fff;\r\n    --gray: #888;\r\n    --light-gray: #111;\r\n    --border: #333;\r\n  }\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;;;;AAUA;EACE"}}]
-}
