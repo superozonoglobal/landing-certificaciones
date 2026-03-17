@@ -96,10 +96,10 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
       if (error.code === '23505') {
         const duplicateField = error.message.includes('leads_email') ? 'email' : 'whatsapp';
         const duplicateValue = duplicateField === 'email' ? lead.email : lead.whatsapp;
-        const message = duplicateField === 'email' 
+        const message = duplicateField === 'email'
           ? 'Este correo electrónico ya está registrado para nuestro webinar.'
           : 'Este número de WhatsApp ya está registrado para nuestro webinar.';
-        
+
         return res.status(409).json({
           ok: false,
           message,
@@ -113,7 +113,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
 
     // Enviar a n8n
     try {
-      await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/leads-landing-page', {
+      await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

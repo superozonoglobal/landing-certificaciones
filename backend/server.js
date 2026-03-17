@@ -90,21 +90,21 @@ db.pragma('journal_mode = WAL');
 // Crear tabla si no existe
 db.exec(`
   CREATE TABLE IF NOT EXISTS leads (
-id   TEXTPRIMARY KEY,
-nombre   TEXTNOT NULL,
-emailTEXTNOT NULL,
-whatsapp TEXTNOT NULL,
-pais TEXTNOT NULL,
-fuente   TEXT,
-utm_source   TEXT,
-utm_medium   TEXT,
-utm_campaign TEXT,
-utm_content  TEXT,
-utm_term TEXT,
-page_url TEXT,
-user_agent   TEXT,
-ip   TEXT,
-created_at   TEXTNOT NULL DEFAULT (datetime('now'))
+    id TEXT PRIMARY KEY,
+    nombre TEXT NOT NULL,
+    email TEXT NOT NULL,
+    whatsapp TEXT NOT NULL,
+    pais TEXT NOT NULL,
+    fuente TEXT,
+    utm_source TEXT,
+    utm_medium TEXT,
+    utm_campaign TEXT,
+    utm_content TEXT,
+    utm_term TEXT,
+    page_url TEXT,
+    user_agent TEXT,
+    ip TEXT,
+    created_at TEXT NOT NULL DEFAULT (datetime('now'))
   );
   CREATE UNIQUE INDEX IF NOT EXISTS idx_leads_email ON leads(email);
   CREATE UNIQUE INDEX IF NOT EXISTS idx_leads_whatsapp ON leads(whatsapp);
@@ -232,8 +232,8 @@ function validateLead(data) {
 async function sendToN8n(lead) {
     try {
         console.log(`🔄 [N8N] Enviando lead a webhook: ${lead.email}`);
-        console.log(`🔄 [N8N] URL: https://superozonoglobal.app.n8n.cloud/webhook-test/leads-landing-page`);
-        
+        console.log(`🔄 [N8N] URL: https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead`);
+
         const payload = {
             id: lead.id,
             nombre: lead.nombre,
@@ -252,10 +252,10 @@ async function sendToN8n(lead) {
             created_at: lead.created_at,
             timestamp: new Date().toISOString()
         };
-        
+
         console.log(`🔄 [N8N] Payload a enviar:`, JSON.stringify(payload, null, 2));
-        
-        const n8nResponse = await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/leads-landing-page', {
+
+        const n8nResponse = await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -661,6 +661,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
     }
 
     const lead = {
+        id: uuidv4(),
         nombre: body.nombre.trim(),
         email: body.email.trim().toLowerCase(),
         whatsapp: body.whatsapp.trim(),
@@ -715,7 +716,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
             // Determinar qué campo está duplicado
             let duplicateField = 'desconocido';
             let duplicateValue = '';
-            
+
             if (err.message.includes('leads.email')) {
                 duplicateField = 'email';
                 duplicateValue = lead.email;
@@ -725,7 +726,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
                 duplicateValue = lead.whatsapp;
                 console.log(`⚠️ [LEAD] WhatsApp duplicado detectado: ${lead.whatsapp}`);
             }
-            
+
             let message = '';
             if (duplicateField === 'email') {
                 message = 'Este correo electrónico ya está registrado para nuestro webinar. ¡Revisa tu bandeja de entrada para recibir todos los detalles del evento!';
@@ -734,7 +735,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
             } else {
                 message = 'Ya existe un registro con estos datos. Por favor verifica o contáctanos para ayuda.';
             }
-            
+
             return res.status(409).json({
                 ok: false,
                 message: message,
