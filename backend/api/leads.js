@@ -113,7 +113,7 @@ app.post('/api/leads', submitLimiter, async (req, res) => {
 
     // Enviar a n8n
     try {
-      await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead', {
+      await fetch('https://superozonoglobal.app.n8n.cloud/webhook/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

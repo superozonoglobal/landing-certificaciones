@@ -232,7 +232,6 @@ function validateLead(data) {
 async function sendToN8n(lead) {
     try {
         console.log(`🔄 [N8N] Enviando lead a webhook: ${lead.email}`);
-        console.log(`🔄 [N8N] URL: https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead`);
 
         const payload = {
             id: lead.id,
@@ -255,7 +254,7 @@ async function sendToN8n(lead) {
 
         console.log(`🔄 [N8N] Payload a enviar:`, JSON.stringify(payload, null, 2));
 
-        const n8nResponse = await fetch('https://superozonoglobal.app.n8n.cloud/webhook-test/nuevo-lead', {
+        const n8nResponse = await fetch('https://superozonoglobal.app.n8n.cloud/webhook/lead-capture', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
